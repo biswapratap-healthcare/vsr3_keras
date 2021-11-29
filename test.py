@@ -12,7 +12,7 @@ while sample := next(iter(train_dataset)):
     text_anchor_input, image_positive_input, image_negative_input = sample
     images.append(image_anchor_input)
     texts.append(text_positive_input)
-    if count > 10:
+    if count > 20:
         break
     count += 1
 

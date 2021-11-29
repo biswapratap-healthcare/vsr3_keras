@@ -6,11 +6,6 @@ from one_hot_map import one_hot_map
 from config import target_image_shape, plate_images_path, plate_text_path
 
 
-def test(n):
-    print(n)
-    return n
-
-
 def preprocess_text(txt):
     txt = txt.numpy().decode("utf-8")
     length = len(txt)
@@ -51,14 +46,11 @@ def preprocess_symmetric_triplets(anchor_image, positive_text, negative_text,
     )
 
 
-# tf.py_function(test, ['hello'], tf.string)
-
-
 plate_images = list()
 for f in os.listdir(plate_images_path):
     if 'troi' not in f:
         plate_images.append(plate_images_path + '/' + f)
-plate_images = sorted(plate_images)[:200]
+plate_images = sorted(plate_images)
 
 
 plate_texts = list()
@@ -85,7 +77,7 @@ rng.shuffle(plate_texts)
 
 text_negative_dataset = tf.data.Dataset.from_tensor_slices(plate_texts)
 
-rng = np.random.RandomState(seed=43)
+rng = np.random.RandomState(seed=24)
 rng.shuffle(plate_images)
 image_negative_dataset = tf.data.Dataset.from_tensor_slices(plate_images)
 
