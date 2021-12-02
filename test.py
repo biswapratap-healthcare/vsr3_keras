@@ -10,9 +10,10 @@ texts = list()
 while sample := next(iter(train_dataset)):
     image_anchor_input, text_positive_input, text_negative_input, \
     text_anchor_input, image_positive_input, image_negative_input = sample
-    images.append(image_anchor_input)
-    texts.append(text_positive_input)
-    if count > 20:
+    if count > 250:
+        images.append(image_anchor_input)
+        texts.append(text_positive_input)
+    if count > 270:
         break
     count += 1
 

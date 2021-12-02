@@ -50,7 +50,7 @@ plate_images = list()
 for f in os.listdir(plate_images_path):
     if 'troi' not in f:
         plate_images.append(plate_images_path + '/' + f)
-plate_images = sorted(plate_images)
+plate_images = sorted(plate_images)[:200]
 
 
 plate_texts = list()
